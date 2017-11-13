@@ -27,6 +27,14 @@ mkdir INTERPHESS_444_1
 cp * ./INTERPHESS_444_1
 cd INTERPHESS_444_1
 echo cd `pwd`
+
+#Substitute:
+# RESTART
+#by:
+# RESTART
+# INTERPHESS
+# 4 4 4
+# 1
 sed -i '/RESTART/ {N;s/RESTART/RESTART\nINTERPHESS\n4 4 4\n1/}' *PDOS.d12 
 rm -Rf *PDOS.out
 RESTART_INPUT=`basename *PDOS.d12 .d12`
