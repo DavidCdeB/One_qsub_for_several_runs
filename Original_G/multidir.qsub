@@ -1,0 +1,74 @@
+#!/bin/bash  --login 
+#PBS -N calcite_I_FREQC 
+#PBS -l select=1:ncpus=16 
+#PBS -l walltime=02:00:00 
+ 
+echo "<qstat -f $PBS_JOBID>" 
+qstat -f $PBS_JOBID 
+echo "</qstat -f $PBS_JOBID>" 
+ 
+# number of cores per node used 
+export NCORES=22 
+# number of processes 
+export NPROCESSES=64 
+ 
+# Make sure any symbolic links are resolved to absolute path 
+export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR) 
+ 
+# Set the number of threads to 1 
+#   This prevents any system libraries from automatically  
+#   using threading. 
+export OMP_NUM_THREADS=1 
+env 
+ 
+echo Initial list of module loaded 
+module list -l 
+module load  intel-suite/2016.3 mpi/intel-5.1 
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/127.054446/SCELPHONO_4_4_4/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_127.054446_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_127.054446_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_125_884132/SCELPHONO_4_4_4/SHRINK_1_1/2016/TEMPERAT/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_125_884132_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_125_884132_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_128_656314/SCELPHONO_4_4_4/SHRINK_1_1/2016/TEMPERAT/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_128_656314_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_128_656314_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_127_265886/SCELPHONO_4_4_4/SHRINK_1_1/2016/TEMPERAT/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_127_265886_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_127_265886_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_131_463313/SCELPHONO_4_4_4/SHRINK_1_1/2016/TEMPERAT/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_131_463313_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_131_463313_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_130_054927/SCELPHONO_4_4_4/SHRINK_1_1/2016/TEMPERAT/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_130_054927_SHRINK_3_3_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_130_054927_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_134_309582/SCELPHONO_4_4_4/SHRINK_1_1/2016/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_134_309582_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_134_309582_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_132_880152/SCELPHONO_4_4_4/SHRINK_1_1/2016/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_132_880152_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_132_880152_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_135_750582/SCELPHONO_4_4_4/SHRINK_1_1/2016/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_135_750582_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_135_750582_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/V_137_200672/SCELPHONO_4_4_4/SHRINK_1_1/2016/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_137_200672_SHRINK_1_1_PDOS calcite_I_optimization_bulk_optimised_more_wall_time_EOS_analysis_NEW_RUN_FROM_FREQCALC_V_137_200672_SHRINK_1_1
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/116.573346/SCELPHONO_4_4_4_archer_MPP/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_116.573346_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_116.573346_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/118.139505/SCELPHONO_4_4_4/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_118.139505_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_118.139505_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/119.713653/SCELPHONO_4_4_4/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_119.713653_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_119.713653_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/121.297131/SCELPHONO_4_4_4/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_121.297131_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_121.297131_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/122.894958/SCELPHONO_4_4_4/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_122.894958_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_122.894958_SHRINK_3_3
+###
+cd /work/dcarrasc/BS-A/structures_CRY14/Calcite_I/DISPERSI/lower_volumes_form_EOS_0.87_0.98_V_eq/124.510211/SCELPHONO_4_4_4/PDOS
+/home/gmallia/CRYSTAL17_cx1/v1/runcryMPP calcite_I_FREQCALC_V_124.510211_SHRINK_3_3_PDOS calcite_I_FREQCALC_V_124.510211_SHRINK_3_3
