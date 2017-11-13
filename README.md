@@ -6,5 +6,5 @@ Run as:
 
 `vi multidir_improved_2.sh`
 
-and add the file: `template.qsub`
+and on top, add the file: `template.qsub`
 
