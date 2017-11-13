@@ -1,0 +1,28 @@
+#!/bin/bash  --login 
+#PBS -N calcite_I_FREQC 
+#PBS -l select=1:ncpus=16 
+#PBS -l walltime=02:00:00 
+
+echo "<qstat -f $PBS_JOBID>" 
+qstat -f $PBS_JOBID
+echo "</qstat -f $PBS_JOBID>" 
+
+# number of cores per node used 
+export NCORES=22
+# number of processes 
+export NPROCESSES=64
+
+# Make sure any symbolic links are resolved to absolute path 
+export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)
+
+# Set the number of threads to 1 
+#   This prevents any system libraries from automatically  
+#   using threading. 
+export OMP_NUM_THREADS=1
+env
+
+echo Initial list of module loaded 
+module list -l
+module load  intel-suite/2016.3 mpi/intel-5.1
+###
+
